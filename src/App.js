@@ -11,7 +11,7 @@ class App extends Component {
 
   async componentWillMount() {
     const config = {
-      apiKey: "AIzaSyA5HZcBS5VDj6cPcdoD8nSs5ZD7rx8kVDQ",
+      apiKey: FIREBASE_API_KEY,
       authDomain: "manager-7c65b.firebaseapp.com",
       databaseURL: "https://manager-7c65b.firebaseio.com",
       projectId: "manager-7c65b",
@@ -21,7 +21,7 @@ class App extends Component {
     firebase.initializeApp(config);
 
     await AsyncStorage.setItem('id', '1')
-    
+
   }
 
   render() {
