@@ -18,7 +18,7 @@ const ShakeMessage  = ({ children, visible, onAccept, onDecline }) => {
           <Text style={textStyle}>
             {children}
           </Text>
-          <Button onPress={onAccept}>Let's go!</Button>
+          <Button onPress={onAccept}>Ok</Button>
         </CardSection>
 
       </View>

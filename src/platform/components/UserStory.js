@@ -13,7 +13,7 @@ class UserStory extends Component {
   }
 
   render() {
-    const { first_name, name, userStory, prototype_id, image } = this.props
+    const { first_name, name, userStory, prototype_id, image } = this.props.testPilot
     const { flexContainerStyle,pageStyle, greetingStyle, titleStyle, preambleStyle, contextStyle, buttonStyle, imageContainerStyle, imageStyle } = styles
 
     return (
@@ -23,6 +23,7 @@ class UserStory extends Component {
             <Text style={greetingStyle}>
               Hello, {first_name}:
             </Text>
+
             <View style={flexContainerStyle}>
               <View style={imageContainerStyle}>
                 <Animatable.Image
@@ -35,15 +36,12 @@ class UserStory extends Component {
               </View>
 
               <View>
-
                 <Text style={preambleStyle}>
                   Thank you for the taking the time to look at our new experience. Below is a little context for who you can keep in mind as you navigate around the prototype.
                 </Text>
               </View>
             </View>
           </View>
-
-
 
           <Text style={titleStyle}>
             {name}
@@ -118,8 +116,7 @@ const styles = {
 }
 
 const mapStateToProps = state => {
-  console.log(state.testPilot);
-  return state.testPilot
+  return { testPilot: state.testPilot }
 }
 
 export default connect(mapStateToProps, null)(UserStory)

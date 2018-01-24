@@ -3,7 +3,6 @@ import {
 } from './types'
 
 export const testPilotUpdate = ({ id, first_name, last_name, prototype_id, name, userStory, image }) => {
-  console.log(arguments);
   return {
     type: TEST_PILOT_UPDATE,
     payload: { id, first_name, last_name, prototype_id, name, userStory, image }

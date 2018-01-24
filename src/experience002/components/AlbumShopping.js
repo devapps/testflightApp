@@ -1,11 +1,12 @@
 // Import library to help create a component
 import React, { Component } from 'react';
 import { View } from 'react-native';
+import { ShakeMessage } from '../../platform/components/common'
 import AlbumList from './AlbumList'
 
 
 // Create component
-class AblumShopping extends Component {
+class AlbumShopping extends Component {
   state = {
     showModal: false
   }
@@ -33,4 +34,4 @@ class AblumShopping extends Component {
   }
 }
 
-export default AlbumList
+export default AlbumShopping

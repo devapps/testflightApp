@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, Image, TouchableWithoutFeedback, TextInput, ScrollView } from 'react-native'
 import { connect } from 'react-redux'
 import { Actions } from 'react-native-router-flux'
-import { Card, CardSection, BlueButton } from './common'
+import { Card, CardSection, BlueButton, ShakeMessage } from './common'
 import { painGainInputUpdate, simpleInputUpdate } from '../../actions'
 
 class Feedback extends Component {
@@ -10,12 +10,39 @@ class Feedback extends Component {
     painGain: null,
     simple: null,
     changeRequest: '',
-    nextSteps: ''
+    nextSteps: '',
+    showModal: false
   }
 
-  handleSubmit() {
+  async handleSubmit() {
     const { painGain, simple, changeRequest, nextSteps } = this.state
-    console.log(this.props);
+    if(painGain === null || simple === null || !changeRequest || !nextSteps){
+      console.log(this.state);
+      this.setState({ showModal: !this.state.showModal })
+      return null
+    }
+
+    const { prototype_id, id } = this.props.testPilot
+    const tempUser_id = { user_id: id}
+    const { user_id } = tempUser_id
+    const body = { prototype_id, user_id, painGain, simple, changeRequest, nextSteps }
+    console.log(JSON.stringify(body));
+    await fetch(`http://localhost:3000/api/prototypes/reviews`, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: 'POST',
+      body: JSON.stringify(body)
+    })
+      .then(result => {
+        console.log(result);
+        Actions.thankYouSection()
+      })
+  }
+
+  onOk() {
+    this.setState({ showModal: !this.state.showModal })
   }
 
   updateLocalState(input) {
@@ -163,6 +190,12 @@ class Feedback extends Component {
         <BlueButton onPress={() => this.handleSubmit()}>
           Submit Feedback
         </BlueButton>
+        <ShakeMessage
+          visible={this.state.showModal}
+          onAccept={this.onOk.bind(this)}
+        >
+          Please make sure to provide an answer to all questions in the feedback form. Thanks again for your time!!
+        </ShakeMessage>
       </View>
     )
   }
@@ -236,8 +269,7 @@ const styles = {
 }
 
 const mapStateToProps = state => {
-  console.log(state.testPilot);
-  return state.testPilot
+  return { testPilot: state.testPilot}
 }
 
 export default connect(mapStateToProps, { painGainInputUpdate, simpleInputUpdate })(Feedback)

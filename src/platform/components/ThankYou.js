@@ -14,7 +14,7 @@ class ThankYou extends Component {
             animation="bounce"
             easing="ease-out"
             delay={2000}
-            iterationCount={3}
+            iterationCount="infinite"
             style={imageStyle}
             source={require('../../images/logo-blue.png')}
           />
