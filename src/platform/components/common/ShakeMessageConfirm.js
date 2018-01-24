@@ -3,8 +3,8 @@ import { Text, View, Modal } from 'react-native'
 import { CardSection } from './CardSection'
 import { Button } from './Button'
 
-const Confirm  = ({ children, visible, onAccept, onDecline }) => {
-  const { containerStyle, textStyle, cardSectionStyle } = styles
+const ShakeMessageConfirm  = ({ children, visible, onAccept, onDecline }) => {
+  const { containerStyle, textStyle, cardSectionStyle, buttonCardSectionStyle } = styles
 
   return (
     <Modal
@@ -18,33 +18,41 @@ const Confirm  = ({ children, visible, onAccept, onDecline }) => {
           <Text style={textStyle}>
             {children}
           </Text>
-        </CardSection>
-
-        <CardSection>
           <Button onPress={onAccept}>Yes</Button>
           <Button onPress={onDecline}>No</Button>
         </CardSection>
+
       </View>
     </Modal>
   )
 }
 
 const styles = {
+  buttonCardSectionStyle: {
+    justifyContent: 'center',
+    width: '97%',
+    alignSelf: 'center'
+  },
   cardSectionStyle: {
-    justifyContent: 'center'
+    borderRadius: 3,
+    justifyContent: 'center',
+    width: '97%',
+    alignSelf: 'center'
   },
   textStyle: {
+    color: '#FF004F',
     flex: 1,
-    fontSize: 18,
+    fontSize: 14,
     textAlign: 'center',
-    lineHeight: 40
+    lineHeight: 20,
+    marginBottom: 50
   },
   containerStyle: {
-    backgroundColor: 'rgba(0,0,0, 0.75)',
+    backgroundColor: 'rgba(37,50,79, 0.75)',
     position: 'relative',
     flex: 1,
     justifyContent: 'center'
   }
 }
 
-export { Confirm }
+export { ShakeMessageConfirm }

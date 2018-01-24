@@ -3,8 +3,21 @@ import { View, Text } from 'react-native'
 import { connect } from 'react-redux'
 import { emailChanged, passwordChanged, loginUser } from '../../actions'
 import { Card, CardSection, Input, Button, Spinner } from './common'
+import { ShakeMessage } from '../../platform/components/common'
 
 class LoginForm extends Component {
+  state = {
+    showModal: false
+  }
+
+  componentWillMount() {
+    this.setState({ showModal: !this.state.showModal })
+  }
+
+  onOk() {
+    this.setState({ showModal: !this.state.showModal })
+  }
+
   onEmailChange(text) {
     this.props.emailChanged(text)
   }
@@ -66,6 +79,12 @@ class LoginForm extends Component {
         <CardSection>
           {this.renderButton()}
         </CardSection>
+        <ShakeMessage
+          visible={this.state.showModal}
+          onAccept={this.onOk.bind(this)}
+        >
+          When you are finished, simply shake your phone and we'll take you out of the experience. Enjoy!
+        </ShakeMessage>
       </Card>
     )
   }

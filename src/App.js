@@ -1,13 +1,20 @@
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
-import { AsyncStorage } from 'react-native'
+import { AsyncStorage, View } from 'react-native'
+import {FIREBASE_API_KEY} from 'react-native-dotenv'
+import { Actions } from 'react-native-router-flux'
 import { createStore, applyMiddleware } from 'redux'
 import firebase from 'firebase'
 import ReduxThunk from 'redux-thunk'
 import reducers from './reducers'
 import Router from './Router'
+import { ShakeMessageConfirm } from './platform/components/common'
+
 
 class App extends Component {
+  state = {
+    showModal: false
+  }
 
   async componentWillMount() {
     const config = {
@@ -20,16 +27,34 @@ class App extends Component {
     };
     firebase.initializeApp(config);
 
-    await AsyncStorage.setItem('id', '1')
+    await AsyncStorage.setItem('id', '3')
 
+    setTimeout(() => {
+      // this.setState({ showModal: !this.state.showModal })
+      Actions.feedback()
+    }, 20000)
+  }
+
+  onOk() {
+    Actions.feedback()
   }
 
   render() {
     const store = createStore(reducers, {}, applyMiddleware(ReduxThunk))
     return (
-      <Provider store={store}>
-        <Router />
-      </Provider>
+        <Provider store={store}>
+          <Router />
+          {/* <View>
+            <ShakeMessageConfirm
+              visible={this.state.showModal}
+              onAccept={this.onOk.bind(this)}
+              onDecline={this.setState({ showModal: !this.state.showModal })}>
+              Are you
+            </ShakeMessageConfirm>
+          </View> */}
+
+        </Provider>
+
     )
   }
 }

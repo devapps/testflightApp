@@ -10,7 +10,7 @@ import {
 
 export const employeeUpdate = ({ prop, value }) => {
   return (dispatch) => {
-    dispatch({ type: EMPLOYEE_UPDATE, payload: { prop, value } })  
+    dispatch({ type: EMPLOYEE_UPDATE, payload: { prop, value } })
   }
 }
 
@@ -29,7 +29,7 @@ export const employeeCreate = ({ name, phone, shift }) => {
 
 export const employeesFetch = () => {
   const { currentUser } = firebase.auth()
-
+  console.log('currentUser', currentUser);
   return (dispatch) => {
     firebase.database().ref(`/users/${currentUser.uid}/employees`)
       .on('value', snapshot => {
@@ -53,7 +53,7 @@ export const employeeSave = ( { name, phone, shift, uid }) => {
 export const employeeDelete = ({ uid }) => {
   const { currentUser } = firebase.auth()
 
-  return () => {
+  return (dispatch) => {
     firebase.database().ref(`/users/${currentUser.uid}/employees/${uid}`)
       .remove()
       .then(() =>{
