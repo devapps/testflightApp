@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, Image } from 'react-native'
+import * as Animatable from 'react-native-animatable'
 
 class ThankYou extends Component {
 
@@ -9,12 +10,16 @@ class ThankYou extends Component {
     return (
       <View style={pageStyle}>
         <View style={footerStyle}>
-          <Image
+          <Animatable.Image
+            animation="bounce"
+            easing="ease-out"
+            delay={2000}
+            iterationCount={3}
             style={imageStyle}
             source={require('../../images/logo-blue.png')}
           />
           <Text style={footerTextStyle}>TEST FLIGHT</Text>
-          <Text style={subtitleTextStyle}>a launchpad for innovation</Text>
+          <Text style={subtitleTextStyle}>the launchpad for innovation</Text>
         </View>
         <View style={thankYouSectionStyle}>
           <View>

@@ -1,39 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { testPilotUpdate } from '../../actions'
-import { View, AsyncStorage, Animated, Text, Image } from 'react-native'
+import { View, AsyncStorage, Text, Image } from 'react-native'
 import { Actions } from 'react-native-router-flux'
-
-class FadeInView extends Component {
-  state = {
-    fadeAnim: new Animated.Value(0),
-  }
-
-  componentDidMount() {
-    Animated.timing(
-      this.state.fadeAnim,
-      {
-        toValue: 1,
-        duration: 4500,
-      }
-    ).start();
-  }
-
-  render() {
-    let { fadeAnim } = this.state;
-
-    return (
-      <Animated.View
-        style={{
-          ...this.props.style,
-          opacity: fadeAnim,
-        }}
-      >
-        {this.props.children}
-      </Animated.View>
-    );
-  }
-}
+import * as Animatable from 'react-native-animatable'
 
 class Loading extends Component {
   async componentDidMount() {
@@ -59,12 +29,15 @@ class Loading extends Component {
     const { pageStyle, imageStyle } = styles
     return (
       <View style={pageStyle}>
-        <FadeInView>
-          <Image
-            style={imageStyle}
-            source={require('../../images/logo-blue.png')}
-          />
-        </FadeInView>
+        <Animatable.Image
+          animation="flipOutX"
+          easing="ease-out"
+          delay={3000}
+          duration={1000}
+          iterationCount={1}
+          style={imageStyle}
+          source={require('../../images/logo-blue.png')}
+        />
       </View>
 
     )

@@ -11,3 +11,6 @@ export const EMPLOYEE_SAVE_SUCCESS = 'employee_save_success'
 export const EMPLOYEE_DELETE_SUCCESS = 'employee_delete_success'
 
 export const TEST_PILOT_UPDATE = 'test_pilot_update'
+
+export const PAINGAIN_INPUT_UPDATE = 'paingain_input_update'
+export const SIMPLE_INPUT_UPDATE = 'simple_input_update'

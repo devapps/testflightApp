@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { ScrollView, View, Text, Image } from 'react-native'
 import { connect } from 'react-redux'
 import { Actions } from 'react-native-router-flux'
+import * as Animatable from 'react-native-animatable'
 import { Button } from './common'
 
 
@@ -24,7 +25,10 @@ class UserStory extends Component {
             </Text>
             <View style={flexContainerStyle}>
               <View style={imageContainerStyle}>
-                <Image
+                <Animatable.Image
+                  animation="pulse"
+                  easing="ease-out"
+                  iterationCount="infinite"
                   style={imageStyle}
                   source={{ uri: image }}
                 />
@@ -114,7 +118,7 @@ const styles = {
 }
 
 const mapStateToProps = state => {
-
+  console.log(state.testPilot);
   return state.testPilot
 }
 

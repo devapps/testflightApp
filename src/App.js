@@ -27,12 +27,12 @@ class App extends Component {
     };
     firebase.initializeApp(config);
 
-    await AsyncStorage.setItem('id', '2')
+    await AsyncStorage.setItem('id', '3')
 
     setTimeout(() => {
       // this.setState({ showModal: !this.state.showModal })
       Actions.feedbackSection()
-    }, 6000)
+    }, 10000)
   }
 
   onOk() {
