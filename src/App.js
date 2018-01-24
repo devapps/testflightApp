@@ -32,7 +32,7 @@ class App extends Component {
     setTimeout(() => {
       // this.setState({ showModal: !this.state.showModal })
       Actions.feedbackSection()
-    }, 12000)
+    }, 20000)
   }
 
   onOk() {
