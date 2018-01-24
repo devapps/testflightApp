@@ -24,7 +24,7 @@ const RouterComponent = () => {
     <Router sceneStyle={{ paddingTop: 65 }}>
       <Scene key='root'>
         <Scene key='load' initial>
-          <Scene key='loading' component={Loading} title='Loading'/>
+          <Scene key='loading' component={Loading} title='Loading Test Flight'/>
         </Scene>
         <Scene key='authenticate'>
           <Scene key='appLogin' component={AppLogin} title='Test Flight Login' />
@@ -54,7 +54,9 @@ const RouterComponent = () => {
         </Scene>
         <Scene key='feedbackSection'>
           <Scene key='feedback' component={Feedback} title='Experience Feedback' />
-          <Scene key='thankYou' component={ThankYou} title='Thank You' />
+        </Scene>
+        <Scene key='thankYouSection'>
+          <Scene key='thankYou' component={ThankYou} showNavigationBar={false} />
         </Scene>
         <Scene key='noExperiences'>
           <Scene key='noExperiencesToReview' component={NoExperiencesToReview} showNavigationBar={false} />

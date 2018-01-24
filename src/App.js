@@ -27,16 +27,16 @@ class App extends Component {
     };
     firebase.initializeApp(config);
 
-    await AsyncStorage.setItem('id', '3')
+    await AsyncStorage.setItem('id', '2')
 
     setTimeout(() => {
       // this.setState({ showModal: !this.state.showModal })
-      Actions.feedback()
-    }, 20000)
+      Actions.feedbackSection()
+    }, 6000)
   }
 
   onOk() {
-    Actions.feedback()
+    Actions.feedbackSection()
   }
 
   render() {
@@ -44,15 +44,6 @@ class App extends Component {
     return (
         <Provider store={store}>
           <Router />
-          {/* <View>
-            <ShakeMessageConfirm
-              visible={this.state.showModal}
-              onAccept={this.onOk.bind(this)}
-              onDecline={this.setState({ showModal: !this.state.showModal })}>
-              Are you
-            </ShakeMessageConfirm>
-          </View> */}
-
         </Provider>
 
     )
@@ -60,3 +51,13 @@ class App extends Component {
 }
 
 export default App
+
+
+{/* <View>
+  <ShakeMessageConfirm
+    visible={this.state.showModal}
+    onAccept={this.onOk.bind(this)}
+    onDecline={this.setState({ showModal: !this.state.showModal })}>
+    Are you
+  </ShakeMessageConfirm>
+</View> */}

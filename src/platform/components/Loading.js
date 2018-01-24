@@ -50,7 +50,7 @@ class Loading extends Component {
       this.props.testPilotUpdate({ id, first_name, last_name, prototype_id, image, name, userStory })
       setTimeout(() => {
         Actions.context()
-      }, 200)
+      }, 4000)
     }
 
   }
