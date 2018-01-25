@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text, View, Modal } from 'react-native'
 import { CardSection } from './CardSection'
-import { Button } from './Button'
+import { RedButton } from './RedButton'
 
 const ShakeMessageConfirm  = ({ children, visible, onAccept, onDecline }) => {
   const { containerStyle, textStyle, cardSectionStyle, buttonCardSectionStyle } = styles
@@ -18,8 +18,8 @@ const ShakeMessageConfirm  = ({ children, visible, onAccept, onDecline }) => {
           <Text style={textStyle}>
             {children}
           </Text>
-          <Button onPress={onAccept}>Yes</Button>
-          <Button onPress={onDecline}>No</Button>
+          <RedButton onPress={onAccept}>Yes</RedButton>
+          <RedButton onPress={onDecline}>No</RedButton>
         </CardSection>
 
       </View>

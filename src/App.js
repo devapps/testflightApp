@@ -30,7 +30,6 @@ class App extends Component {
     await AsyncStorage.setItem('id', '3')
 
     setTimeout(() => {
-      // this.setState({ showModal: !this.state.showModal })
       Actions.feedbackSection()
     }, 20000)
   }
@@ -51,13 +50,3 @@ class App extends Component {
 }
 
 export default App
-
-
-{/* <View>
-  <ShakeMessageConfirm
-    visible={this.state.showModal}
-    onAccept={this.onOk.bind(this)}
-    onDecline={this.setState({ showModal: !this.state.showModal })}>
-    Are you
-  </ShakeMessageConfirm>
-</View> */}

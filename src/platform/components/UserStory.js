@@ -3,13 +3,13 @@ import { ScrollView, View, Text, Image } from 'react-native'
 import { connect } from 'react-redux'
 import { Actions } from 'react-native-router-flux'
 import * as Animatable from 'react-native-animatable'
-import { Button } from './common'
+import { RedButton } from './common'
 
 
 class UserStory extends Component {
 
   handleStart(id) {
-    Actions[`experience00${id}`]()
+    Actions[`experience${id}`]()
   }
 
   render() {
@@ -51,9 +51,9 @@ class UserStory extends Component {
           </Text>
         </ScrollView>
 
-        <Button onPress={() => this.handleStart(prototype_id)}>
+        <RedButton onPress={() => this.handleStart(prototype_id)}>
           Start Prototype
-        </Button>
+        </RedButton>
       </View>
     )
   }

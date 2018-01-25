@@ -1,6 +1,6 @@
 import React from 'react'
 import { Scene, Router, Actions } from 'react-native-router-flux'
-import LoginForm from './experience001/components/LoginForm'
+import LoginForm from './experience1/components/LoginForm'
 
 //platform scenes
 import Loading from './platform/components/Loading'
@@ -10,14 +10,14 @@ import Feedback from './platform/components/Feedback'
 import ThankYou from './platform/components/ThankYou'
 import NoExperiencesToReview from './platform/components/NoExperiencesToReview'
 
-//experience001 scenes
-import EmployeeList from './experience001/components/EmployeeList'
-import EmployeeCreate from './experience001/components/EmployeeCreate'
-import EmployeeEdit from './experience001/components/EmployeeEdit'
+//experience1 scenes
+import EmployeeList from './experience1/components/EmployeeList'
+import EmployeeCreate from './experience1/components/EmployeeCreate'
+import EmployeeEdit from './experience1/components/EmployeeEdit'
 
-//experience002 scenes
-import AlbumShopping from './experience002/components/AlbumShopping'
-import AlbumDetail from './experience002/components/AlbumDetail'
+//experience2 scenes
+import AlbumShopping from './experience2/components/AlbumShopping'
+import AlbumDetail from './experience2/components/AlbumDetail'
 
 const RouterComponent = () => {
   return (
@@ -32,7 +32,7 @@ const RouterComponent = () => {
         <Scene key='context'>
           <Scene key='userStory' component={UserStory} title='Experience Context'/>
         </Scene>
-        <Scene key='experience001'>
+        <Scene key='experience1'>
           <Scene key='auth' >
             <Scene key='login' component={LoginForm} title='Please Login' initial />
           </Scene>
@@ -49,7 +49,7 @@ const RouterComponent = () => {
           <Scene key='employeeCreate' component={EmployeeCreate} title='Create Employee' />
           <Scene key='employeeEdit' component={EmployeeEdit} title='Edit Employee' />
         </Scene>
-        <Scene key='experience002'>
+        <Scene key='experience2'>
           <Scene key='albumShopping' component={AlbumShopping} title='Album Shopping' />
         </Scene>
         <Scene key='feedbackSection'>

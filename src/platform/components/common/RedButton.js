@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text, TouchableOpacity } from 'react-native'
 
-const BlueButton = ({ onPress, children }) => {
+const RedButton = ({ onPress, children }) => {
     const { buttonStyle, textStyle } = styles
 
     return (
@@ -26,10 +26,10 @@ const styles = {
       position: 'absolute',
       bottom: 5,
       width: '97%',
-      backgroundColor: '#25324F',
+      backgroundColor: '#FF004F',
       borderRadius: 2,
       borderWidth: 1,
-      borderColor: '#25324F',
+      borderColor: '#FF004F',
       marginLeft: 5,
       marginRight: 5,
       shadowColor: '#000',
@@ -39,4 +39,4 @@ const styles = {
     }
 }
 
-export { BlueButton }
+export { RedButton }
