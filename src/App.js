@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 import { AsyncStorage, View } from 'react-native'
-import {FIREBASE_API_KEY} from 'react-native-dotenv'
+import { FIREBASE_API_KEY } from 'react-native-dotenv'
 import { Actions } from 'react-native-router-flux'
 import { createStore, applyMiddleware } from 'redux'
 import firebase from 'firebase'
@@ -12,9 +12,6 @@ import { ShakeMessageConfirm } from './platform/components/common'
 
 
 class App extends Component {
-  state = {
-    showModal: false
-  }
 
   async componentWillMount() {
     const config = {

@@ -17,7 +17,6 @@ class Feedback extends Component {
   async handleSubmit() {
     const { painGain, simple, changeRequest, nextSteps } = this.state
     if(painGain === null || simple === null || !changeRequest || !nextSteps){
-      console.log(this.state);
       this.setState({ showModal: !this.state.showModal })
       return null
     }
@@ -26,7 +25,6 @@ class Feedback extends Component {
     const tempUser_id = { user_id: id}
     const { user_id } = tempUser_id
     const body = { prototype_id, user_id, painGain, simple, changeRequest, nextSteps }
-    console.log(JSON.stringify(body));
     await fetch(`http://localhost:3000/api/prototypes/reviews`, {
       headers: {
         'Accept': 'application/json',
@@ -36,7 +34,6 @@ class Feedback extends Component {
       body: JSON.stringify(body)
     })
       .then(result => {
-        console.log(result);
         Actions.thankYouSection()
       })
   }
@@ -149,7 +146,7 @@ class Feedback extends Component {
         <ScrollView>
           {/* <Text style={titleStyle}>TELL US WHAT YOU THINK</Text> */}
           <View style={sectionStyle}>
-            <Text style={thumbTextStyle}>This experience provides a gain or removes a gain for the target user(s):</Text>
+            <Text style={thumbTextStyle}>This experience provides a gain or removes a pain for the target user(s):</Text>
             <View style={{ flexDirection: 'row'}}>
               {this.renderGainYesThumbs()}
               {this.renderGainNoThumbs()}
