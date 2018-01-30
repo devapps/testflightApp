@@ -14,7 +14,7 @@ class UserStory extends Component {
 
   render() {
     const { first_name, name, userStory, prototype_id, image } = this.props.testPilot
-    const { flexContainerStyle,pageStyle, greetingStyle, titleStyle, preambleStyle, contextStyle, buttonStyle, imageContainerStyle, imageStyle } = styles
+    const { flexContainerStyle, pageStyle, greetingStyle, titleStyle, preambleStyle, contextStyle, buttonStyle, imageContainerStyle, imageStyle } = styles
 
     return (
       <View style={pageStyle}>

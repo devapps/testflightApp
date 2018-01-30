@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { HEROKU } from 'react-native-dotenv'
 import { testPilotUpdate } from '../../actions'
 import { View, AsyncStorage, Text, Image } from 'react-native'
 import { Actions } from 'react-native-router-flux'
@@ -11,10 +12,10 @@ class Loading extends Component {
     if(!tempId){
       Actions.authenticate()
     }else{
-      const userJson = await fetch(`http://localhost:3000/api/users/${tempId}`)
+      const userJson = await fetch(`${HEROKU}/users/${tempId}`)
       const user = await userJson.json()
       const { id, first_name, last_name, prototype_id, image } = user.users
-      const prototypeJson = await fetch(`http://localhost:3000/api/prototypes/${prototype_id}`)
+      const prototypeJson = await fetch(`${HEROKU}/prototypes/${prototype_id}`)
       const prototype = await prototypeJson.json()
       const { name, description, userStory } = prototype.prototypes
       this.props.testPilotUpdate({ id, first_name, last_name, prototype_id, image, name, userStory })

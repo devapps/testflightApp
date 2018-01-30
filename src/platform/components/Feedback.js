@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, Image, TouchableWithoutFeedback, TextInput, ScrollView } from 'react-native'
+import { HEROKU } from 'react-native-dotenv'
 import { connect } from 'react-redux'
 import { Actions } from 'react-native-router-flux'
 import { Card, CardSection, BlueButton, ShakeMessage } from './common'
@@ -25,7 +26,7 @@ class Feedback extends Component {
     const tempUser_id = { user_id: id}
     const { user_id } = tempUser_id
     const body = { prototype_id, user_id, painGain, simple, changeRequest, nextSteps }
-    await fetch(`http://localhost:3000/api/prototypes/reviews`, {
+    await fetch(`${HEROKU}/prototypes/reviews`, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
