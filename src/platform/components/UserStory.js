@@ -82,7 +82,7 @@ const styles = {
     marginBottom: 10,
     marginTop: 20,
     color: '#fff',
-    padding: 8
+    padding: 15
   },
   preambleStyle: {
     fontSize: 14,
@@ -97,7 +97,7 @@ const styles = {
   contextStyle: {
     fontSize: 16,
     color: '#fff',
-    padding: 8,
+    padding: 15,
     lineHeight: 27,
     paddingBottom: 80
   },

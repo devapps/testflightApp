@@ -24,11 +24,11 @@ class App extends Component {
     };
     firebase.initializeApp(config);
 
-    await AsyncStorage.setItem('id', '2')
+    await AsyncStorage.setItem('id', '3')
 
     setTimeout(() => {
       Actions.feedbackSection()
-    }, 20000)
+    }, 38000)
   }
 
   onOk() {

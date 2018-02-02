@@ -10,8 +10,8 @@ class Feedback extends Component {
   state = {
     painGain: null,
     simple: null,
-    changeRequest: '',
-    nextSteps: '',
+    changeRequest: 'While it is simple and our users will love it, we need to enable sorting capabilities that can extend across the entire collection.',
+    nextSteps: 'Make the updates and shoot me the new experience next week',
     showModal: false
   }
 

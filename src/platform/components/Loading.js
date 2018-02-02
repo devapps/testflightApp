@@ -21,7 +21,7 @@ class Loading extends Component {
       this.props.testPilotUpdate({ id, first_name, last_name, prototype_id, image, name, userStory })
       setTimeout(() => {
         Actions.context()
-      }, 4000)
+      }, 5000)
     }
 
   }
@@ -33,7 +33,7 @@ class Loading extends Component {
         <Animatable.Image
           animation="flipOutX"
           easing="ease-out"
-          delay={3000}
+          delay={4000}
           duration={1000}
           iterationCount={1}
           style={imageStyle}
